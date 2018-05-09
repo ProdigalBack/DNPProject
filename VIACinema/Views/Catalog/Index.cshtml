@@ -1,0 +1,53 @@
+﻿@model VIACinema.Models.Catalog.MovieIndexModel
+<head>
+    <title></title>
+</head>
+<body id="page1">
+    <!-- START PAGE SOURCE -->
+    
+                
+                <div id="content">
+                    <div id="slogan">
+                        <div class="image png"></div>
+                        <div class="inside">
+                            <h2>We are breaking<span>All Limitations</span></h2>
+                         
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="border-right">
+                            <div class="border-left">
+                                <div class="inner">
+                                    <h3>Welcome to <b>VIA</b> <span>Cinema</span></h3>
+                                    <p>The goal of the 1st semester is to give you profound knowledge and practical skills in object-oriented programming and systems development. You will also learn about responsive web design. </p>
+                                    <div class="img-box1"><img src="images/1page-img1.jpg" alt="" /><p>During the 2nd semester, you will learn about software engineering methods, database development and system development methods, and you will accumulate the programming skills necessary to build client/server systems. </p> </div>
+                                    <p>The goals of the 3rd semester are to design and implement heterogeneous software solutions including the use of the programming languages Assembler, C, Java and C#. The semester is built around a larger semester project in which students will integrate several programming languages.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Fresh <span>Movies</span></h3>
+                        <ul class="movies">
+
+                             @foreach(var movie in Model.Movies)
+                            {
+                                <li>
+                                <h4>@movie.Name</h4>
+                                <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@movie.Id">
+                                    <img src="@movie.ImageUrl" alt=""  />
+                                </a>
+                                
+                                <p>@movie.Description</p>
+                                <div class="wrapper"><a asp-controller="Catalog" asp-action="Detail" asp-route-id="@movie.Id" class="link2" ><span><span>Read More</span></span></a></div>
+                            </li>
+                            }
+                           
+                            <li class="clear">&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+                
+       
+    <!-- END PAGE SOURCE -->
+</body>
