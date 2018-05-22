@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using CinemaData;
 using CinemaServices;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,10 +23,24 @@ namespace VIACinema
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options=>
+                {
+                    options.AccessDeniedPath = "/Home/ErrorForbidden";
+                    options.LoginPath = "/Home/ErrorNotLoggedIn";
+                });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("MustBeVIP", p => p.RequireAuthenticatedUser().RequireRole("VIP"));
+            });
+          
             services.AddSingleton(Configuration);
             services.AddScoped<IMovie, MovieService>();
             services.AddScoped<IShowing, ShowingService>();
             services.AddScoped<IShowingSeat, SeatService>();
+            services.AddScoped<IOrder, OrderService>();
+            services.AddScoped<ILogin, LoginService>();
             services.AddDbContext<CinemaContext>(options 
                 => options.UseSqlServer(Configuration.GetConnectionString("CinemaConnection")));
         }
@@ -54,6 +66,8 @@ namespace VIACinema
                     context.Context.Response.Headers.Add("Expires", "-1");
                 }
             });
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

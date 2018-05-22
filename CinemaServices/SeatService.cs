@@ -31,12 +31,20 @@ namespace CinemaServices
 
         public Showing GetShowing(int Id)
         {
-            throw new NotImplementedException();
+            return GetShowingSeat(Id).Showing;
         }
 
         public IEnumerable<ShowingSeat> GetAll()
         {
             return _context.ShowingSeats;
+        }
+
+        public ShowingSeat GetShowingSeat(int Id)
+        {
+            return _context.ShowingSeats
+                .Include(s => s.Seat)
+                .Include(s => s.Showing)
+                .First(s => s.Id == Id); 
         }
     }
 }

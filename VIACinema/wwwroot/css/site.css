@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
+h5{
+    float:right;
+}
 p {
     font-size: 150%
 }
@@ -10,12 +12,57 @@ p {
 html, body {
     min-width: 940px;
 }
+.errorMessage{
+    height: 60px;
+    width: 200px;
+}
+.orderHistory {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+table {
+   
+    width: 600px;
+    margin: auto;
+}
 
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    padding: 15px;
+    text-align: center;
+}
 .ticketOrder {
     margin: auto;
     width: 500px;
     margin-bottom: 40px;
 }
+
+.loginbutton {
+    float: right;
+}
+
+.login {
+    width: 200px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.email {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 .available {
     background-color: green;
@@ -28,9 +75,10 @@ html, body {
 .available:focus {
     background-color: blue;
 }
-  
-}
+
+
 .ordered {
+    background-color: red;
     padding: 15px;
     width: 20px;
     height: 20px;
@@ -119,7 +167,7 @@ ul, ol {
 .wrapper {
     width: 100%;
     overflow: hidden;
-    margin-top:20px;
+    margin-top:50px;
 }
 
 .extra-wrap {

@@ -10,6 +10,7 @@ namespace CinemaData
         IEnumerable<ShowingSeat> GetSeatsById(int Id);
         IEnumerable<ShowingSeat> GetAll();
         Seat GetSeat(int Row,int Column);
+        ShowingSeat GetShowingSeat(int Id);
         Showing GetShowing(int Id);
     }
 }

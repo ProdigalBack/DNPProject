@@ -6,52 +6,56 @@
     <!-- START PAGE SOURCE -->
    
              
-                <div id="content">
-                    <div id="slogan">
-                        <div class="image png"></div>
-                        <div class="inside">
-                            <h2>We are breaking<span>All Limitations</span></h2>
+    <div id="content">
+        <div id="slogan">
+            <div class="image png"></div>
+            <div class="inside">
+                <h2>We are breaking<span>All Limitations</span></h2>
 
-                        </div>
-                    </div>
-                   
-                    
-                        <hr>
-                        <div class="row">
-                            <div class="col-6">
-                                <h1>@Model.Showings.First().Name</h1>
-                            </div>
-                        </div>
-                        <hr>
-                       
-                        <div class="MovieDetail">
-                            <div class="container">
-                                <div class="photo">
-                                    <img class="mr-3" src="@Model.Showings.First().ImageUrl" alt="Generic placeholder image">
-                                </div>
-                                <div>
-                                    <article>
-                                        <p> @Model.Showings.First().Description</p>
-                                        <div>Length: @Model.Showings.First().Runtime</div>
-                                        <div>Diredtor: @Model.Showings.First().Director</div>
-                                        <div>Actor: @Model.Showings.First().Actor</div>
-                                        <div>Showing: </div>
-                                        @foreach (var showing in Model.Showings)
-                                        {
-                                    <div></div>
-                                    <div>@showing.Time</div>
-                                    <a asp-controller="Catalog" asp-action="Order" asp-route-id="@showing.Id"><button type="button" class="btn btn-sm"> Order Ticket</button></a>
-                                          }
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                        
-                       
-                    
+            </div>
+        </div>
+        <div>
+            <a asp-controller="Catalog" asp-action="OrderHistory" >
+                <h5>Click to see Order history</h5>
+            </a>
+        </div>
 
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <h1>@Model.Showings.First().Name</h1>
+            </div>
+        </div>
+        <hr>
 
+        <div class="MovieDetail">
+            <div class="container">
+                <div class="photo">
+                    <img class="mr-3" src="@Model.Showings.First().ImageUrl" alt="Generic placeholder image">
                 </div>
+                <div>
+                    <article>
+                        <p> @Model.Showings.First().Description</p>
+                        <div>Length: @Model.Showings.First().Runtime</div>
+                        <div>Diredtor: @Model.Showings.First().Director</div>
+                        <div>Actor: @Model.Showings.First().Actor</div>
+                        <div>Showing: </div>
+                        @foreach (var showing in Model.Showings)
+                    {
+                        <div></div>
+                        <div>@showing.Time</div>
+                        <a asp-controller="Catalog" asp-action="Order" asp-route-id="@showing.Id"><button type="button" class="btn btn-sm"> Order Ticket</button></a>
+                }
+                    </article>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
                
     <script type="text/javascript">Cufon.now();</script>
     <!-- END PAGE SOURCE -->

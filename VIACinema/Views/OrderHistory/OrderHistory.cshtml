@@ -1,0 +1,34 @@
+﻿
+@model VIACinema.Models.OrderHistory.OrderIndexModel
+
+<head>
+    <title></title>
+</head>
+<body id="page1">
+    <!-- START PAGE SOURCE -->
+    <div>
+        <a asp-controller="Catalog" asp-action="OrderHistory" asp-route-id="1">
+            <h5>Click to see Order history</h5>
+        </a>
+    </div>
+    <div class="orderHistory">
+        <table>
+            <tr>
+                <th><font color="white">Movie:</font></th>
+                <th><font color="white">Seat:</font></th>
+                <th><font color="white">Time:</font></th>
+            </tr>
+            @foreach (var order in Model.OrderHistory)
+            {
+                <tr>
+                    <td><font color="white">@order.Name</font></td>
+                    <td><font color="white">row: @order.Row  column: @order.Column</font> </td>
+                    <td><font color="white">@order.Time</font></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <script type="text/javascript">Cufon.now();</script>
+    <!-- END PAGE SOURCE -->
+</body>
