@@ -3,34 +3,50 @@
 
     <form method="post" asp-action="Login">
         <div class="content">
-            <div class="login">
-                <h3>Log <span>in</span></h3>
-               
-                <fieldset>
-                    <div class="email">
-                        <label asp-for="Email">Your Email:</label>
-                        <br />
-                        <br />
-                        <input asp-for="Email" />
+
+            <!--
+    <div class="login">
+        <h3>Log <span>in</span></h3>
+
+        <fieldset>
+            <div class="email">
+                <label asp-for="Email">Your Email:</label>
+                <br />
+                <br />
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="email">
+                <label asp-for="Password">Your Password:</label>
+                <br />
+                <br />
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="errorMessage" asp-validation-summary="All"></div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="wrapper"> <input type="submit" value="Log In" /></div>
+
+        </fieldset>
+
+    </div>
+      -->
+            <div class="login-page">
+                <div class="form">
+                    <form class="login-form">
+                        <input type="text" placeholder="Email" asp-for="Email" />
                         <span asp-validation-for="Email"></span>
-                    </div>
-                    <div class="email">
-                        <label asp-for="Password">Your Password:</label>
-                        <br />
-                        <br />
-                        <input asp-for="Password" />
+                        <input type="password" placeholder="password" asp-for="Password" />
                         <span asp-validation-for="Password"></span>
-                    </div>
-                    <div class="errorMessage" asp-validation-summary="All"></div>
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div class="wrapper"> <input type="submit" value="Log In" /></div>
-
-                </fieldset>
-                
+                        <button>login</button>
+                        <div class="errorMessage" asp-validation-summary="All"></div>
+                        <p class="message">Not registered? <a  asp-action="CreateAccount">Create an account</a></p>
+                    </form>
+                </div>
             </div>
         </div>
     </form>

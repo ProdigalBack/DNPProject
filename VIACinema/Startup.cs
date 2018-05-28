@@ -34,8 +34,9 @@ namespace VIACinema
             {
                 options.AddPolicy("MustBeVIP", p => p.RequireAuthenticatedUser().RequireRole("VIP"));
             });
-          
+            
             services.AddSingleton(Configuration);
+            services.AddScoped<IRegister, RegisterService>();
             services.AddScoped<IMovie, MovieService>();
             services.AddScoped<IShowing, ShowingService>();
             services.AddScoped<IShowingSeat, SeatService>();

@@ -1,0 +1,19 @@
+﻿@model VIACinema.Models.Login.LoginModel
+
+
+<form method="post" asp-action="Register">
+    <div class="content">
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form">
+                    <input type="text" placeholder="Email" asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                    <input type="password" placeholder="password" asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                    <button>Register</button>
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+</form>
